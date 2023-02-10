@@ -29,6 +29,9 @@ class Task
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $completed_at = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $statut = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +93,18 @@ class Task
     public function setCompletedAt(?\DateTimeImmutable $completed_at): self
     {
         $this->completed_at = $completed_at;
+
+        return $this;
+    }
+
+    public function getStatut(): ?string
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(string $statut): self
+    {
+        $this->statut = $statut;
 
         return $this;
     }
